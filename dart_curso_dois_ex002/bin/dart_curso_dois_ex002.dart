@@ -4,7 +4,6 @@ void main() {
   Atacante atacante01 = Atacante('Roger Guedes', 'Corinthians', "Atacante");
   Goleiro goleiro01 = Goleiro('Cássio Ramos', 'Corinthians', 'Goleiro');
 
-
   tecnico01.apresnetacao();
   atacante01.apresnetacao();
   goleiro01.apresnetacao();
