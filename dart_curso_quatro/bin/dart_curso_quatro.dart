@@ -5,7 +5,6 @@ import 'exceptions/bank_controller_exceptions.dart';
 import 'models/account.dart';
 
 void testingNullSafety() {
-  
   Account? myAccount =
       Account(name: 'Richart', balance: 200, isAuthenticated: true);
 
@@ -87,3 +86,4 @@ void main() {
     print("Algo inesperado deu errado =( ");
   }
 }
+
