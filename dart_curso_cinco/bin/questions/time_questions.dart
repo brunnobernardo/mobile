@@ -21,7 +21,9 @@ class TimeQuestions {
         question.contains('dia') ||
         question.contains('Dia') ||
         question.contains('ano') ||
-        question.contains('Ano')) {
+        question.contains('Ano') ||
+        question.contains('mes') ||
+        question.contains('Mes')) {
       isThisATimeQuestion = true;
     }
     return isThisATimeQuestion;
@@ -82,12 +84,16 @@ class TimeQuestions {
             ' Beleza, estamos no ano de 2077, a pandemia já está terminando... \n '
                 'Brincadeirinha! estamos em : ${date.year}';
         print(_botAnswer);
-      } else if (question.contains('mes') || question.contains('mês')) {
-        String _botQuestion =
-            brubsBot + 'Não entendi, você quer saber em qual mês estamos?';
-        print(_botQuestion);
-        String answer = stdin.readLineSync().toString();
-        if (answer.contains('Sim') || answer.contains('sim')) ;
+      } else {
+        String _botAnswer = brubsBot + ' Ah, foi mal... entendi errado.';
+        print(_botAnswer);
+      }
+    } else if (question.contains('mes') || question.contains('mês')) {
+      String _botQuestion =
+          brubsBot + 'Não entendi, você quer saber em qual mês estamos?';
+      print(_botQuestion);
+      String answer = stdin.readLineSync().toString();
+      if (answer.contains('Sim') || answer.contains('sim')) {
         String _botAnswer = brubsBot + 'Legal, estamos no mês : ${date.month}';
       } else {
         String _botAnswer = brubsBot + ' Ah, foi mal... entendi errado.';
