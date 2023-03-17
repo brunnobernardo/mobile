@@ -6,7 +6,7 @@ class TimeQuestions {
   String hour = 'Que horas sao?';
   String day = 'Que dia e hoje?';
   String year = 'Em que ano estamos?';
-  String month = 'Em qual mês estamos';
+  String month = 'Em qual mês estamos?';
   String question;
   DateTime date = DateTime.now();
   String brubsBot = 'brubsBOT:\n';
@@ -95,6 +95,7 @@ class TimeQuestions {
       String answer = stdin.readLineSync().toString();
       if (answer.contains('Sim') || answer.contains('sim')) {
         String _botAnswer = brubsBot + 'Legal, estamos no mês : ${date.month}';
+        print(_botAnswer);
       } else {
         String _botAnswer = brubsBot + ' Ah, foi mal... entendi errado.';
         print(_botAnswer);
@@ -102,3 +103,4 @@ class TimeQuestions {
     }
   }
 }
+
