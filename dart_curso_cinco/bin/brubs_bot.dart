@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'questions/good_manners.dart';
 import 'questions/time_questions.dart';
 import 'timing/waiting_time.dart';
 
@@ -10,16 +11,16 @@ void main() async {
 
   var myStream = BotColck().brubsBotStream(1, 11);
   var subscriber = myStream.listen((event) {
-    print('                    brubsbot is activated for $event seconds');
+    print('                    brubsBOT está ativo a: $event segundos');
   }, onDone: () {
-    print('brubsbot is finishing its work, ask the last question!');
+    print('brubsBOT está sendo finalizado, faça a ultima pergunta!');
     a = false;
   });
 
-  print('-- Iniciando o KakoBOT, aguarde..--');
+  print('-- Iniciando o brubsBOT, aguarde..--');
   await BotColck()
       .clock(2); // Passando o time p o metódo Future da class botClock
-  print('KakoBOT:\n Oi :) \n Como posso ajudar?');
+  print('brubsBOT:\n Oi :) \n Como posso ajudar?');
   do {
     usuario = stdin.readLineSync().toString();
     print('-- Processando pergunta, aguarde..--');
@@ -32,10 +33,13 @@ void main() async {
       print(brubsBot + ' Até a proxima!!');
     } else if (TimeQuestions(usuario).isThisTime()) {
       // verificar antes, assim não fazemos toda a função sem precisar.
-      await BotColck().clock(2);
       TimeQuestions(usuario).timeQuestion();
+      await BotColck().clock(1);
+    } else if (GoodManners(usuario).isThisManners()) {
+      GoodManners(usuario).goodManners();
+      await BotColck().clock(1);
     } else if (false) {
-      //Basta adicionar novas perguntas aqui!
+      // Para adicionar outras perguntas
     } else {
       await BotColck().clock(2);
       print(brubsBot +
@@ -44,5 +48,5 @@ void main() async {
     }
   } while (a);
 
-  print('--Encerrando KakoBOT--');
+  print('--Encerrando brubsBOT--');
 }

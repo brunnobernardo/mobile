@@ -10,7 +10,7 @@ class BotColck {
       await Future.delayed(Duration(seconds: interval));
       yield i++;
 }
-    print('The stream is finished');
+    print('A Stream terminou');
   }
 
 }
