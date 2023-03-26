@@ -1,5 +1,4 @@
 import 'dart:async';
-import 'dart:math';
 
 void main() async {
   Stream myStream(int interval, [int? maxCount]) async* {
