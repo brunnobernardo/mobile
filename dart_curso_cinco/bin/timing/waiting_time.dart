@@ -1,5 +1,4 @@
 class BotColck {
-  
   Future clock(int seconds) {
     return Future.delayed(Duration(seconds: seconds));
   }
@@ -9,8 +8,9 @@ class BotColck {
     while (i != maxCount) {
       await Future.delayed(Duration(seconds: interval));
       yield i++;
-}
+    }
     print('A Stream terminou');
   }
 
+  
 }
