@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'games/joquempo.dart';
 import 'questions/good_manners.dart';
 import 'questions/math_questions.dart';
 import 'questions/time_questions.dart';
@@ -41,6 +42,9 @@ void main() async {
       await BotColck().clock(1);
     } else if (MathQuestions(usuario).isMath()) {
       MathQuestions(usuario).calculator();
+      await BotColck().clock(1);
+    } else if (Joquempo(usuario).isJoquempo()) {
+      Joquempo(usuario).joquempoGame();
       await BotColck().clock(1);
     } else if (false) {
       // Para adicionar outras perguntas
