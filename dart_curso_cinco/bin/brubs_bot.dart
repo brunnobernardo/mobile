@@ -11,9 +11,9 @@ void main() async {
   var a = true;
   String usuario = '';
 
-  var myStream = BotColck().brubsBotStream(1, 11);
+  var myStream = BotColck().brubsBotStream(1, 61);
   var subscriber = myStream.listen((event) {
-    print('                    brubsBOT está ativo a: $event segundos');
+    print('brubsBOT está ativo a: $event segundos');
   }, onDone: () {
     print('brubsBOT está sendo finalizado, faça a ultima pergunta!');
     a = false;

@@ -26,7 +26,11 @@ class Joquempo {
         questions.contains('Papel') ||
         questions.contains('Tesoura') ||
         questions.contains('tesoura'))) {
-      isJoquempoQuestion = true;
+      print("$brubsBot Opa, por acaso você quer jogar Joquempo?");
+      String answer = stdin.readLineSync().toString();
+      if (answer == "Sim" || answer == "sim") {
+        isJoquempoQuestion = true;
+      }
     }
     return isJoquempoQuestion;
   }
@@ -42,36 +46,49 @@ class Joquempo {
   }
 
   joquempoGame() {
-    print("$brubsBot Ok! escolha uma opção entre pedra, papel e tesoura");
-    String computerOption = getComputerOption();
-    String playerOption = getPlayerOption();
+    print('$brubsBot Seja bem vindo ao Joquempo!! \n');
 
     while (true) {
+      print(' $brubsBot Escolha uma opção entre pedra, papel e tesoura');
+      String playerOption = getPlayerOption();
+      String computerOption = getComputerOption();
+
       if (!options.contains(playerOption)) {
-        print("Por favor, digite uma opção válida");
-        break;
+        print(" $brubsBot Opção inválida =( ");
       } else {
-        if (playerOption == computerOption) {
-          print("Empate!");
-        } else if ((playerOption == "Pedra" ||
-                playerOption == "pedra" && computerOption == "Tesoura" ||
-                computerOption == "tesoura") ||
-            (playerOption == "Papel" ||
-                playerOption == "papel" && computerOption == "Pedra" ||
-                computerOption == "pedra") ||
-            (playerOption == "Tesoura" ||
-                playerOption == "tesoura" && computerOption == "Papel" ||
-                computerOption == "Papel")) {
-          print("$brubsBot Você ganhou");
+        if ((playerOption == computerOption ||
+            playerOption == "Pedra" && computerOption == "pedra" ||
+            playerOption == "pedra" && computerOption == "Pedra" ||
+            playerOption == "Tesoura" && computerOption == "tesoura" ||
+            playerOption == "tesoura" && computerOption == "Tesoura" ||
+            playerOption == "Papel" && computerOption == "papel" ||
+            playerOption == "papel" && computerOption == "Papel")) {
+          print('$brubsBot Empate');
+        } else if (( playerOption == "Pedra" && computerOption == "tesoura" ||
+        playerOption == "Pedra" && computerOption == "Tesoura" ||
+        playerOption == "pedra" && computerOption == "tesoura" ||
+        playerOption == "pedra" && computerOption == "Tesoura" ||
+
+        playerOption == "Papel" && computerOption == "pedra" ||
+        playerOption == "Papel" && computerOption == "Pedra" ||
+        playerOption == "papel" && computerOption == "pedra" ||
+        playerOption == "papel" && computerOption == "Pedra" ||
+
+        playerOption == "Tesoura" && computerOption == "papel" ||
+        playerOption == "Tesoura" && computerOption == "Papel" ||
+        playerOption == "tesoura" && computerOption == "papel" ||
+        playerOption == "tesoura" && computerOption == "Papel" )) {
+          print("$brubsBot Parabéns, você ganhou");
         } else {
-          print("$brubsBot O computador ganhou");
+          print(" $brubsBot Computador ganhou");
         }
-        print("$brubsBot Escolha do jogador: ${playerOption}");
-        print("$brubsBot Escolah do computador: ${computerOption}");
+        print("$brubsBot Escolha do jogador: $playerOption");
+        print("$brubsBot Escolha do computador: $computerOption");
       }
-      print('$brubsBot Você deseja continuar jogando?');
-      String anwser = stdin.readLineSync().toString();
-      if (anwser == 'Nao' || anwser == 'nao') {
+      print("$brubsBot Você deseja continuar jogando?");
+      String answer = stdin.readLineSync().toString();
+      if (answer == "Sim" || answer == "sim") {
+      } else {
         break;
       }
     }
